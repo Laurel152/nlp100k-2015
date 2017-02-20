@@ -2,7 +2,7 @@ import sys
 
 args = sys.argv
 
-def head(n):
+def tail(n):
 	inputfile = open('hightemp.txt', 'r')
 	
 	rowlists = inputfile.readlines()
@@ -11,7 +11,7 @@ def head(n):
 		n = rownums
 	
 	output = ""
-	for i in range(n):
+	for i in range(rownums)[-n:]:
 		output = output + rowlists[i]
 	
 	inputfile.close()
@@ -19,6 +19,6 @@ def head(n):
 	return output
 	
 if len(args) == 2:
-	sys.stdout.write(head(int(args[1])))
+	sys.stdout.write(tail(int(args[1])))
 else:
-	print('ERROR: 14.py has only one integer augument.')
+	print('ERROR: 15.py has only one integer augument.')
